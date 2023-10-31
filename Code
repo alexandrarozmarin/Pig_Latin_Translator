@@ -1,0 +1,36 @@
+#adding some flare
+print("Welcome to the Pig Latin translator!")
+#allowing user to enter as many words as they want
+first_control = True
+while first_control:
+    #asking for user input, validating input
+    control = True
+    #using while loop to continually ask user for word as long as it's invalid
+    while control:
+        word = input("Enter a word: ")
+        #setting up variables
+        length = len(word)
+        check_length = 0
+        #using for loop to systematically check every character in word
+        for i in word:
+            asciicode = ord(i)
+            #checking that character is either uppercase or lowercase letter
+            if asciicode > 65 and asciicode < 122:
+                #accumulator variable used to make sure every character is valid
+                check_length += 1
+            else:
+                print("Invalid character detected. Please enter another word.")
+                print(i)
+            #if all characters are valid, control variable breaks loop    
+            if check_length == length:
+                control = False
+
+    #concatinating a new string based on rules of pig latin, using string indexing
+    pig_latin = word[1:len(word)] + word[0] + "ay"
+    print("Translated into pig latin, your word is", str.lower(pig_latin))
+    #asking user if they would like to enter another word
+    again = str.lower(input("Would you like to enter another word? (yes/no) "))
+    #
+    if again == "no":
+        print("See you again soon!")
+        first_control = False
