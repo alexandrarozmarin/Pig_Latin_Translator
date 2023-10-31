@@ -42,7 +42,7 @@ while first_control:
     control_three = True
     while control_three:
         again = str.lower(input("Would you like to enter another sentence? (yes/no) "))
-        #
+        #reprompts user if they don't put a valid input
         if again == "no":
             print("See you again soon!")
             first_control = False
