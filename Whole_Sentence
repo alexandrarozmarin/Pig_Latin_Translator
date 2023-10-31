@@ -1,0 +1,54 @@
+#defining function that takes one argument and translates it into pig latin based on pig latin rules
+def translate_to_pig_latin(word):
+    pig_latin = str.lower(word[1:len(word)] + word[0] + "ay")
+    return pig_latin
+
+#adding some flare
+print("Welcome to the Pig Latin translator!")
+first_control = True
+while first_control:
+    #asking for user input, validating input
+    control = True
+    #using while loop to continually ask user for word as long as it's invalid
+    while control:
+        sentence = input("Enter a sentence to translate to pig latin: ")
+        #setting up variables
+        length = len(sentence)
+        check_length = 0
+        #using for loop to systematically check every character in word
+        for i in sentence:
+            asciicode = ord(i)
+            #checking that character is either uppercase or lowercase letter
+            if (asciicode >= 65 and asciicode <= 122) or asciicode == 32:
+                #accumulator variable used to make sure every character is valid
+                check_length += 1
+            else:
+                print("Invalid character detected. Please enter another word.")
+                print(i)
+            #if all characters are valid, control variable breaks loop    
+            if check_length == length:
+                control = False
+    #split sentence into individual words using string methods
+    individual_words = sentence.split(" ")
+    #accumulator variable for transformed sentence
+    final_sentence = ""
+    #translate each word in sentence to pig latin using function defined earlier
+    for words in individual_words:
+        new_word = translate_to_pig_latin(words)
+        final_sentence += new_word + " "
+    #printing final sentence, adding sentence capitalization and a period
+    print(final_sentence[:len(final_sentence)-1].capitalize(), ".", sep = "")
+    #asking user if they would like to enter another word
+    control_three = True
+    while control_three:
+        again = str.lower(input("Would you like to enter another sentence? (yes/no) "))
+        #
+        if again == "no":
+            print("See you again soon!")
+            first_control = False
+            control_three = False
+        elif again == "yes":
+            control_three = False
+            first_control = True
+        else:
+            print("Invalid answer.")
