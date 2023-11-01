@@ -10,6 +10,6 @@ In the whole sentence version, the user is asked for a sentence where each word 
 ## Bugs to still be fixed
 If a user enters a space at the end of the sentence, there is a runtime error saying the function defined cannot run because the string index is out of range.
 
-Need to account for if a user puts a piece of punctuation at the end of their sentence. Would like to conserve the punctuation mark they use.
+Need to account for if a user puts a piece of punctuation at the end of their sentence. Would like to conserve the punctuation mark they use. FIXED
 
 Want to account for capitalization. For example, if they include a proper noun, the translated word should also be capitalized in translation.
